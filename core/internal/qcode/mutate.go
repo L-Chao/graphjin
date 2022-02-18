@@ -5,9 +5,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/dosco/graphjin/core/internal/graph"
-	"github.com/dosco/graphjin/core/internal/sdata"
-	"github.com/dosco/graphjin/core/internal/util"
+	"github.com/L-Chao/graphjin/core/internal/graph"
+	"github.com/L-Chao/graphjin/core/internal/sdata"
+	"github.com/L-Chao/graphjin/core/internal/util"
 )
 
 var (

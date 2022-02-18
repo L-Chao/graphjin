@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dosco/graphjin/internal/cmd/internal/migrate"
-	"github.com/dosco/graphjin/serv"
+	"github.com/L-Chao/graphjin/internal/cmd/internal/migrate"
+	"github.com/L-Chao/graphjin/serv"
 	"github.com/spf13/cobra"
 )
 

@@ -3,7 +3,7 @@ package core
 import (
 	"time"
 
-	"github.com/dosco/graphjin/core/internal/sdata"
+	"github.com/L-Chao/graphjin/core/internal/sdata"
 )
 
 func (g *GraphJin) initDBWatcher() error {

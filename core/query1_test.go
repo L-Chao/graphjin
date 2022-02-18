@@ -11,7 +11,7 @@ import (
 	"os"
 	"path"
 
-	"github.com/dosco/graphjin/core"
+	"github.com/L-Chao/graphjin/core"
 )
 
 func Example_query() {

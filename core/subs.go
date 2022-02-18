@@ -15,8 +15,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/L-Chao/graphjin/core/internal/qcode"
 	"github.com/avast/retry-go"
-	"github.com/dosco/graphjin/core/internal/qcode"
 	"github.com/rs/xid"
 )
 

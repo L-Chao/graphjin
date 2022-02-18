@@ -8,7 +8,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/dosco/graphjin/core"
+	"github.com/L-Chao/graphjin/core"
 	"github.com/spf13/afero"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/sync/errgroup"

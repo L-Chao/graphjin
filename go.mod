@@ -1,4 +1,4 @@
-module github.com/dosco/graphjin
+module github.com/L-Chao/graphjin
 
 require (
 	contrib.go.opencensus.io/exporter/aws v0.0.0-20200617204711-c478e41e60e9
@@ -70,8 +70,6 @@ require (
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 )
 
-replace (
-	github.com/go-playground/validator/v10 v10.10.0 => ./core/internal/validator
-)
+replace github.com/go-playground/validator/v10 v10.10.0 => ./core/internal/validator
 
 go 1.16

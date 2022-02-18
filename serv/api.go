@@ -9,7 +9,7 @@
 		"database/sql"
 		"fmt"
 		"time"
-		"github.com/dosco/graphjin/core"
+		"github.com/L-Chao/graphjin/core"
 		_ "github.com/jackc/pgx/v4/stdlib"
 	)
 
@@ -44,8 +44,8 @@ import (
 	"strings"
 	"sync/atomic"
 
-	"github.com/dosco/graphjin/core"
-	"github.com/dosco/graphjin/internal/util"
+	"github.com/L-Chao/graphjin/core"
+	"github.com/L-Chao/graphjin/internal/util"
 	"github.com/spf13/afero"
 	"go.uber.org/zap"
 )

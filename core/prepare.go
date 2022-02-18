@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dosco/graphjin/core/internal/allow"
-	"github.com/dosco/graphjin/core/internal/qcode"
+	"github.com/L-Chao/graphjin/core/internal/allow"
+	"github.com/L-Chao/graphjin/core/internal/qcode"
 )
 
 type queryReq struct {

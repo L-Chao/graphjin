@@ -10,10 +10,10 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/L-Chao/graphjin/core/internal/psql"
+	"github.com/L-Chao/graphjin/core/internal/qcode"
+	"github.com/L-Chao/graphjin/core/internal/sdata"
 	"github.com/avast/retry-go"
-	"github.com/dosco/graphjin/core/internal/psql"
-	"github.com/dosco/graphjin/core/internal/qcode"
-	"github.com/dosco/graphjin/core/internal/sdata"
 	"github.com/go-playground/validator/v10"
 )
 

@@ -94,7 +94,7 @@ const App = () => {
               GRAPHJIN
             </div>
             <GitHubButton
-              href="https://github.com/dosco/graphjin"
+              href="https://github.com/L-Chao/graphjin"
               data-color-scheme="no-preference: dark; light: light; dark: dark;"
               data-size="large"
               data-show-count="true"
@@ -125,7 +125,7 @@ const App = () => {
             <GraphiQL.MenuItem
               onSelect={() =>
                 openLink(
-                  "https://twitter.com/share?text=Build%20APIs%20in%205%20minutes%20with%20GraphJin.%20An%20automagical%20GraphQL%20to%20SQL%20compiler&url=https://github.com/dosco/graphjin"
+                  "https://twitter.com/share?text=Build%20APIs%20in%205%20minutes%20with%20GraphJin.%20An%20automagical%20GraphQL%20to%20SQL%20compiler&url=https://github.com/L-Chao/graphjin"
                 )
               }
               label="Share on Twitter"
@@ -139,7 +139,7 @@ const App = () => {
           </GraphiQL.Menu>
           {/* <div style={{ marginLeft: "20px" }}>
             <GitHubButton
-              href="https://github.com/dosco/graphjin"
+              href="https://github.com/L-Chao/graphjin"
               data-color-scheme="no-preference: dark; light: light; dark: dark;"
               data-size="large"
               data-show-count="true"

@@ -5,8 +5,8 @@ import (
 	"path"
 	"path/filepath"
 
-	"github.com/dosco/graphjin/internal/util"
-	"github.com/dosco/graphjin/serv"
+	"github.com/L-Chao/graphjin/internal/util"
+	"github.com/L-Chao/graphjin/serv"
 	"github.com/spf13/afero"
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"

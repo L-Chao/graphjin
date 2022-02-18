@@ -7,7 +7,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/dosco/graphjin/core"
+	"github.com/L-Chao/graphjin/core"
 	"github.com/orlangure/gnomock"
 	"github.com/orlangure/gnomock/preset/cockroachdb"
 	"github.com/orlangure/gnomock/preset/mssql"

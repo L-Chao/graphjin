@@ -7,7 +7,7 @@ import (
 	"net/http/httputil"
 	"strings"
 
-	"github.com/dosco/graphjin/internal/jsn"
+	"github.com/L-Chao/graphjin/internal/jsn"
 	"github.com/mitchellh/mapstructure"
 )
 

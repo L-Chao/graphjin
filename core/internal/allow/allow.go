@@ -14,8 +14,8 @@ import (
 
 	"gopkg.in/yaml.v3"
 
+	"github.com/L-Chao/graphjin/internal/jsn"
 	"github.com/chirino/graphql/schema"
-	"github.com/dosco/graphjin/internal/jsn"
 	"github.com/spf13/afero"
 )
 

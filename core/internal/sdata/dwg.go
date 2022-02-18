@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/dosco/graphjin/core/internal/util"
+	"github.com/L-Chao/graphjin/core/internal/util"
 )
 
 var (

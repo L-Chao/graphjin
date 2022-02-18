@@ -10,9 +10,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/dosco/graphjin/core"
-	"github.com/dosco/graphjin/serv/internal/auth"
-	"github.com/dosco/graphjin/serv/internal/etags"
+	"github.com/L-Chao/graphjin/core"
+	"github.com/L-Chao/graphjin/serv/internal/auth"
+	"github.com/L-Chao/graphjin/serv/internal/etags"
 	"github.com/gorilla/websocket"
 	"github.com/rs/cors"
 	"go.opencensus.io/plugin/ochttp"

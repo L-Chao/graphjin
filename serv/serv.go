@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dosco/graphjin/serv/internal/auth"
+	"github.com/L-Chao/graphjin/serv/internal/auth"
 	"go.opencensus.io/plugin/ochttp"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"

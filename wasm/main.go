@@ -5,7 +5,7 @@ package main
 import (
 	"syscall/js"
 
-	"github.com/dosco/graphjin/serv"
+	"github.com/L-Chao/graphjin/serv"
 )
 
 func main() {

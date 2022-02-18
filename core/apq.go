@@ -1,7 +1,7 @@
 package core
 
 import (
-	"github.com/dosco/graphjin/core/internal/qcode"
+	"github.com/L-Chao/graphjin/core/internal/qcode"
 	lru "github.com/hashicorp/golang-lru"
 )
 

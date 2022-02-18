@@ -6,8 +6,8 @@ import (
 	"path"
 	"strings"
 
-	"github.com/dosco/graphjin/internal/common"
-	"github.com/dosco/graphjin/serv/internal/auth"
+	"github.com/L-Chao/graphjin/internal/common"
+	"github.com/L-Chao/graphjin/serv/internal/auth"
 	"github.com/klauspost/compress/gzhttp"
 	"go.opencensus.io/plugin/ochttp"
 	"go.uber.org/zap"

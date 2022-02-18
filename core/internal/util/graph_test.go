@@ -3,7 +3,7 @@ package util_test
 import (
 	"testing"
 
-	"github.com/dosco/graphjin/core/internal/util"
+	"github.com/L-Chao/graphjin/core/internal/util"
 	"github.com/tj/assert"
 )
 

@@ -3,8 +3,8 @@
 package psql
 
 import (
-	"github.com/dosco/graphjin/core/internal/qcode"
-	"github.com/dosco/graphjin/core/internal/sdata"
+	"github.com/L-Chao/graphjin/core/internal/qcode"
+	"github.com/L-Chao/graphjin/core/internal/sdata"
 )
 
 func (c *compilerContext) renderUpdate() {

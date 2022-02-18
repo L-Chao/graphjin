@@ -27,7 +27,7 @@ GraphJin (unknown version)
 For documentation, visit https://graphjin.com
 
 To build with version information please use the Makefile
-> git clone https://github.com/dosco/graphjin
+> git clone https://github.com/L-Chao/graphjin
 > cd graphjin && make install
 
 Licensed under the Apache Public License 2.0

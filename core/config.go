@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dosco/graphjin/core/internal/qcode"
+	"github.com/L-Chao/graphjin/core/internal/qcode"
 	"github.com/spf13/afero"
 	"github.com/spf13/viper"
 )

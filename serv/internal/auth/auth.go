@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/dosco/graphjin/core"
+	"github.com/L-Chao/graphjin/core"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 
-	"github.com/dosco/graphjin/serv/internal/auth/provider"
+	"github.com/L-Chao/graphjin/serv/internal/auth/provider"
 )
 
 type JWTConfig = provider.JWTConfig

@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/dosco/graphjin/core/internal/qcode"
-	"github.com/dosco/graphjin/core/internal/sdata"
+	"github.com/L-Chao/graphjin/core/internal/qcode"
+	"github.com/L-Chao/graphjin/core/internal/sdata"
 )
 
 const (

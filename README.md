@@ -1,8 +1,8 @@
 # GraphJin Instant GraphQL API
 
-[![GoDoc](https://img.shields.io/badge/godoc-reference-5272B4.svg?style=for-the-badge&logo=appveyor&logo=appveyor)](https://pkg.go.dev/github.com/dosco/graphjin)
-[![GoReport](https://goreportcard.com/badge/github.com/gojp/goreportcard?style=for-the-badge)](https://goreportcard.com/report/github.com/dosco/graphjin)
-[![Apache 2.0](https://img.shields.io/github/license/dosco/graphjin.svg?style=for-the-badge)](https://github.com/dosco/graphjin/blob/master/LICENSE)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-5272B4.svg?style=for-the-badge&logo=appveyor&logo=appveyor)](https://pkg.go.dev/github.com/L-Chao/graphjin)
+[![GoReport](https://goreportcard.com/badge/github.com/gojp/goreportcard?style=for-the-badge)](https://goreportcard.com/report/github.com/L-Chao/graphjin)
+[![Apache 2.0](https://img.shields.io/github/license/dosco/graphjin.svg?style=for-the-badge)](https://github.com/L-Chao/graphjin/blob/master/LICENSE)
 [![Docker build](https://img.shields.io/docker/cloud/build/dosco/graphjin.svg?style=for-the-badge)](https://hub.docker.com/r/dosco/graphjin/builds)
 [![Discord Chat](https://img.shields.io/discord/628796009539043348.svg?style=for-the-badge&logo=appveyor)](https://discord.gg/6pSWCTZ)
 
@@ -25,7 +25,7 @@ Ubuntu (Snap)
 sudo snap install --classic graphjin
 ```
 
-Debian and Redhat ([releases](https://github.com/dosco/graphjin/releases))
+Debian and Redhat ([releases](https://github.com/L-Chao/graphjin/releases))
 
 ```
 Download the .deb or .rpm from the releases page and install with dpkg -i and rpm -i respectively.
@@ -34,7 +34,7 @@ Download the .deb or .rpm from the releases page and install with dpkg -i and rp
 Go Install
 
 ```
-go install github.com/dosco/graphjin@latest
+go install github.com/L-Chao/graphjin@latest
 ```
 
 ## 2. Create a new app
@@ -79,10 +79,10 @@ graphjin db
 
 ## Use in your own code
 
-You can use GraphJin as a library within your own code. The [serv](https://pkg.go.dev/github.com/dosco/graphjin/serv) package exposes the entirely GraphJin standlone service as a library while the [core](https://pkg.go.dev/github.com/dosco/graphjin/core) package exposes just the GraphJin compiler. The [Go docs](https://pkg.go.dev/github.com/dosco/graphjin/core#pkg-examples) are filled with examples on how to use GraphJin within your own apps as a sort of alternative to using ORM packages. GraphJin allows you to use GraphQL and the full power of GraphJin to access your data instead of a limiting ORM.
+You can use GraphJin as a library within your own code. The [serv](https://pkg.go.dev/github.com/L-Chao/graphjin/serv) package exposes the entirely GraphJin standlone service as a library while the [core](https://pkg.go.dev/github.com/L-Chao/graphjin/core) package exposes just the GraphJin compiler. The [Go docs](https://pkg.go.dev/github.com/L-Chao/graphjin/core#pkg-examples) are filled with examples on how to use GraphJin within your own apps as a sort of alternative to using ORM packages. GraphJin allows you to use GraphQL and the full power of GraphJin to access your data instead of a limiting ORM.
 
 ```console
-go get github.com/dosco/graphjin/core
+go get github.com/L-Chao/graphjin/core
 ```
 
 ```golang
@@ -94,7 +94,7 @@ import (
   "fmt"
   "log"
 
-  "github.com/dosco/graphjin/core"
+  "github.com/L-Chao/graphjin/core"
   _ "github.com/jackc/pgx/v4/stdlib"
 )
 
@@ -133,7 +133,7 @@ func main() {
 
 ```golang
 import (
-  "github.com/dosco/graphjin/serv"
+  "github.com/L-Chao/graphjin/serv"
 )
 
 gj, err := serv.NewGraphJinService(conf, opt...)
@@ -210,15 +210,15 @@ With GraphJin your web and mobile developers can start building instantly. All t
 
 ## Documentation
 
-[Quick Start](https://github.com/dosco/graphjin/wiki/Quick-Start)
+[Quick Start](https://github.com/L-Chao/graphjin/wiki/Quick-Start)
 
-[Documentation](https://github.com/dosco/graphjin/wiki)
+[Documentation](https://github.com/L-Chao/graphjin/wiki)
 
 [Build APIs in 5 minutes with GraphJin](https://dev.to/dosco/build-high-performance-graphql-apis-in-5-minutes-with-graphjin-261o)
 
 [GraphQL vs REST](https://dev.to/dosco/rest-vs-graphql-building-startups-in-2021-3k73)
 
-[GraphQL Examples](https://pkg.go.dev/github.com/dosco/graphjin/core#pkg-examples)
+[GraphQL Examples](https://pkg.go.dev/github.com/L-Chao/graphjin/core#pkg-examples)
 
 ## Reach out
 

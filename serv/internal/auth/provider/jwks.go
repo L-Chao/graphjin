@@ -10,7 +10,7 @@ import (
 	jwt "github.com/golang-jwt/jwt"
 	"github.com/lestrrat-go/jwx/jwk"
 
-	"github.com/dosco/graphjin/core"
+	"github.com/L-Chao/graphjin/core"
 )
 
 type keychainCache struct {

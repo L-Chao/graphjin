@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"math/rand"
 
+	"github.com/L-Chao/graphjin/internal/client"
+	"github.com/L-Chao/graphjin/serv"
 	"github.com/brianvoe/gofakeit/v6"
-	"github.com/dosco/graphjin/internal/client"
-	"github.com/dosco/graphjin/serv"
 	"github.com/gosimple/slug"
 	"github.com/spf13/cobra"
 )

@@ -7,8 +7,8 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/dosco/graphjin/core/internal/qcode"
-	"github.com/dosco/graphjin/core/internal/sdata"
+	"github.com/L-Chao/graphjin/core/internal/qcode"
+	"github.com/L-Chao/graphjin/core/internal/sdata"
 	"github.com/gobuffalo/flect"
 	"github.com/spf13/afero"
 )

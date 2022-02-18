@@ -3,7 +3,7 @@ package cmd
 import (
 	"path/filepath"
 
-	"github.com/dosco/graphjin/serv"
+	"github.com/L-Chao/graphjin/serv"
 	"github.com/spf13/cobra"
 )
 

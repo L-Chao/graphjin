@@ -10,9 +10,9 @@ import (
 	"sync"
 	"time"
 
+	"github.com/L-Chao/graphjin/core/internal/qcode"
 	"github.com/dop251/goja"
 	"github.com/dop251/goja/parser"
-	"github.com/dosco/graphjin/core/internal/qcode"
 	babel "github.com/jvatic/goja-babel"
 )
 

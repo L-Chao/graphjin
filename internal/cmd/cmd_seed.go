@@ -15,9 +15,9 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/L-Chao/graphjin/core"
 	"github.com/brianvoe/gofakeit/v6"
 	"github.com/dop251/goja"
-	"github.com/dosco/graphjin/core"
 	"github.com/gosimple/slug"
 	"github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/stdlib"

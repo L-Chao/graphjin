@@ -9,7 +9,7 @@
 		"database/sql"
 		"fmt"
 		"time"
-		"github.com/dosco/graphjin/core"
+		"github.com/L-Chao/graphjin/core"
 		_ "github.com/jackc/pgx/v4/stdlib"
 	)
 
@@ -54,14 +54,14 @@ import (
 	"sync"
 	"sync/atomic"
 
+	"github.com/L-Chao/graphjin/core/internal/allow"
+	"github.com/L-Chao/graphjin/core/internal/crypto"
+	"github.com/L-Chao/graphjin/core/internal/psql"
+	"github.com/L-Chao/graphjin/core/internal/qcode"
+	"github.com/L-Chao/graphjin/core/internal/sdata"
+	"github.com/L-Chao/graphjin/core/internal/util"
 	"github.com/chirino/graphql"
 	"github.com/dop251/goja"
-	"github.com/dosco/graphjin/core/internal/allow"
-	"github.com/dosco/graphjin/core/internal/crypto"
-	"github.com/dosco/graphjin/core/internal/psql"
-	"github.com/dosco/graphjin/core/internal/qcode"
-	"github.com/dosco/graphjin/core/internal/sdata"
-	"github.com/dosco/graphjin/core/internal/util"
 	"github.com/spf13/afero"
 )
 
