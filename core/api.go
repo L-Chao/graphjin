@@ -122,6 +122,18 @@ type script struct {
 
 type Option func(*graphjin) error
 
+func NewGraphJinWithDBInfo(conf *Config, db *sql.DB, dbinfo *sdata.DBInfo, options ...Option) (*GraphJin, error) {
+	gj, err := newGraphJin(conf, db, dbinfo, options...)
+	if err != nil {
+		return nil, err
+	}
+
+	g := &GraphJin{}
+	g.Store(gj)
+
+	return g, nil
+}
+
 // NewGraphJin creates the GraphJin struct, this involves querying the database to learn its
 // schemas and relationships
 func NewGraphJin(conf *Config, db *sql.DB, options ...Option) (*GraphJin, error) {
@@ -133,9 +145,9 @@ func NewGraphJin(conf *Config, db *sql.DB, options ...Option) (*GraphJin, error)
 	g := &GraphJin{}
 	g.Store(gj)
 
-	// if err := g.initDBWatcher(); err != nil {
-	// 	return nil, err
-	// }
+	if err := g.initDBWatcher(); err != nil {
+		return nil, err
+	}
 	return g, nil
 }
 
@@ -172,9 +184,9 @@ func newGraphJin(conf *Config, db *sql.DB, dbinfo *sdata.DBInfo, options ...Opti
 		return nil, err
 	}
 
-	// if err := gj.initDiscover(); err != nil {
-	// 	return nil, err
-	// }
+	if err := gj.initDiscover(); err != nil {
+		return nil, err
+	}
 
 	if err := gj.initResolvers(); err != nil {
 		return nil, err
