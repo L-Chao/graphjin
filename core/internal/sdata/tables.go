@@ -393,7 +393,7 @@ func GetTable(db *sql.DB, schema, name, _type string) (*DBTable, error) {
 			col.Schema = v.TableSchema
 		}
 		if v.TableName != "" {
-			col.Table = v.TableSchema
+			col.Table = v.TableName
 		}
 		if v.ColumnName != "" {
 			col.Name = v.ColumnName
