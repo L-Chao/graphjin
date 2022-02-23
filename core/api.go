@@ -124,19 +124,7 @@ type Option func(*graphjin) error
 
 func WithDBInfo(_type string, _version int, _schema, _name string) Option {
 	return func(g *graphjin) error {
-		if g.dbinfo == nil {
-			g.dbinfo = &sdata.DBInfo{
-				Type:    _type,
-				Version: _version,
-				Schema:  _schema,
-				Name:    _name,
-			}
-			return nil
-		}
-		g.dbinfo.Type = _type
-		g.dbinfo.Version = _version
-		g.dbinfo.Schema = _schema
-		g.dbinfo.Name = _name
+		g.dbinfo = sdata.NewDBInfo(_type, _version, _schema, _name, nil, nil, nil)
 		return nil
 	}
 }
