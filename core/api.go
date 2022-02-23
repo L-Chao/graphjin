@@ -143,7 +143,9 @@ func WithDBInfo(_type string, _version int, _schema, _name string) Option {
 
 func WithTable(name string) Option {
 	return func(g *graphjin) error {
-		return nil
+		table, err := sdata.GetTable(g.db, g.dbinfo.Schema, g.dbinfo.Name, g.dbinfo.Type)
+		g.dbinfo.AddTable(*table)
+		return err
 	}
 }
 

@@ -362,7 +362,7 @@ func isInList(val string, s []string) bool {
 	return false
 }
 
-func GetTable(db *sql.DB, schema, name string) (*DBTable, error) {
+func GetTable(db *sql.DB, schema, name, _type string) (*DBTable, error) {
 	query := `SELECT
 		TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, ORDINAL_POSITION, IS_NULLABLE, DATA_TYPE, COLUMN_KEY
 	FROM
@@ -383,7 +383,38 @@ func GetTable(db *sql.DB, schema, name string) (*DBTable, error) {
 		rows.Scan(&c.TableSchema, &c.TableName, &c.ColumnName, &c.OrdinalPosition, &c.IsNullable, &c.DataType, &c.ColumnKey)
 		columns = append(columns, c)
 	}
-	return nil, nil
+	var dbColumns []DBColumn
+	for k, v := range columns {
+		var col DBColumn
+		if v.TableSchema != "" {
+			col.Schema = v.TableSchema
+		}
+		if v.TableName != "" {
+			col.Table = v.TableSchema
+		}
+		if v.ColumnName != "" {
+			col.Name = v.TableName
+		}
+		col.ID = int32(k)
+		if v.IsNullable == "YES" {
+			col.NotNull = true
+		} else {
+			col.NotNull = false
+		}
+		if v.DataType != "" {
+			col.Type = v.DataType
+		}
+		if v.ColumnKey == "PRI" {
+			col.PrimaryKey = true
+			col.UniqueKey = true
+		}
+		if v.ColumnKey == "UNI" {
+			col.UniqueKey = true
+		}
+		dbColumns = append(dbColumns, col)
+	}
+	table := NewDBTable(schema, name, _type, dbColumns)
+	return &table, nil
 }
 
 type Column struct {
