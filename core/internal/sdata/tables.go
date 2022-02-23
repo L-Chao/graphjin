@@ -361,3 +361,37 @@ func isInList(val string, s []string) bool {
 	}
 	return false
 }
+
+func GetTable(db *sql.DB, schema, name string) (*DBTable, error) {
+	query := `SELECT
+		TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, ORDINAL_POSITION, IS_NULLABLE, DATA_TYPE, COLUMN_KEY
+	FROM
+		information_schema.columns
+	WHERE
+		table_schema='?'
+	AND
+		table_name="?"`
+	rows, err := db.Query(query, schema, name)
+	if err != nil {
+		return nil, err
+	}
+
+	defer rows.Close()
+	var columns []Column
+	for rows.Next() {
+		var c Column
+		rows.Scan(&c.TableSchema, &c.TableName, &c.ColumnName, &c.OrdinalPosition, &c.IsNullable, &c.DataType, &c.ColumnKey)
+		columns = append(columns, c)
+	}
+	return nil, nil
+}
+
+type Column struct {
+	TableSchema     string
+	TableName       string
+	ColumnName      string
+	OrdinalPosition int32
+	IsNullable      string
+	DataType        string
+	ColumnKey       string
+}

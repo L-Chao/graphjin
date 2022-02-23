@@ -141,7 +141,13 @@ func WithDBInfo(_type string, _version int, _schema, _name string) Option {
 	}
 }
 
-func NewGraphJinOpt(conf *Config, db *sql.DB, options ...Option) (*GraphJin, error) {
+func WithTable(name string) Option {
+	return func(g *graphjin) error {
+		return nil
+	}
+}
+
+func NewGJWithOption(conf *Config, db *sql.DB, options ...Option) (*GraphJin, error) {
 	gj, err := newGraphJin(conf, db, nil, options...)
 	if err != nil {
 		return nil, err
