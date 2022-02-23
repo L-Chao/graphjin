@@ -396,7 +396,7 @@ func GetTable(db *sql.DB, schema, name, _type string) (*DBTable, error) {
 			col.Table = v.TableSchema
 		}
 		if v.ColumnName != "" {
-			col.Name = v.TableName
+			col.Name = v.ColumnName
 		}
 		col.ID = int32(k)
 		if v.IsNullable == "YES" {
