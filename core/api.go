@@ -122,8 +122,27 @@ type script struct {
 
 type Option func(*graphjin) error
 
-func NewGraphJinWithDBInfo(conf *Config, db *sql.DB, dbinfo *sdata.DBInfo, options ...Option) (*GraphJin, error) {
-	gj, err := newGraphJin(conf, db, dbinfo, options...)
+func WithDBInfo(_type string, _version int, _schema, _name string) Option {
+	return func(g *graphjin) error {
+		if g.dbinfo == nil {
+			g.dbinfo = &sdata.DBInfo{
+				Type:    _type,
+				Version: _version,
+				Schema:  _schema,
+				Name:    _name,
+			}
+			return nil
+		}
+		g.dbinfo.Type = _type
+		g.dbinfo.Version = _version
+		g.dbinfo.Schema = _schema
+		g.dbinfo.Name = _name
+		return nil
+	}
+}
+
+func NewGraphJinOpt(conf *Config, db *sql.DB, options ...Option) (*GraphJin, error) {
+	gj, err := newGraphJin(conf, db, nil, options...)
 	if err != nil {
 		return nil, err
 	}
