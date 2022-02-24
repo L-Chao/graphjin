@@ -365,12 +365,7 @@ func isInList(val string, s []string) bool {
 func GetTable(db *sql.DB, schema, name, _type string) (*DBTable, error) {
 	rows, err := db.Query(
 		fmt.Sprintf(
-			"SELECT "+
-				"TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, ORDINAL_POSITION, IS_NULLABLE, DATA_TYPE, COLUMN_KEY "+
-				"FROM "+
-				"information_schema.columns "+
-				"WHERE "+
-				"table_schema='%s' AND table_name='%s'",
+			"SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, ORDINAL_POSITION, IS_NULLABLE, DATA_TYPE, COLUMN_KEY FROM information_schema.columns WHERE table_schema='%s' AND table_name='%s'",
 			schema,
 			name,
 		),
