@@ -49,6 +49,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"errors"
+	"fmt"
 	_log "log"
 	"os"
 	"sync"
@@ -131,9 +132,13 @@ func WithDBInfo(_type string, _version int, _schema, _name string) Option {
 
 func WithTable(name string) Option {
 	return func(g *graphjin) error {
+		var err error
 		table, err := sdata.GetTable(g.db, g.dbinfo.Schema, name, g.dbinfo.Type)
-		if err != nil || table == nil {
-			return errors.New("sdata.GetTable error")
+		if err != nil {
+			return err
+		}
+		if table == nil {
+			return fmt.Errorf("no such table: %s", name)
 		}
 		g.dbinfo.AddTable(*table)
 		return err
