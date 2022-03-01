@@ -1,7 +1,6 @@
 package core
 
 import (
-	"bytes"
 	"context"
 	"database/sql"
 	"database/sql/driver"
@@ -307,19 +306,25 @@ func (c *gcontext) resolveSQL(qr queryReq, role string) (queryResp, error) {
 		if err != nil {
 			return res, err
 		}
-		var buff bytes.Buffer
-		buff.WriteString("[")
+		var maps []map[string]interface{}
 		for rows.Next() {
 			var data []byte
+			m := make(map[string]interface{})
 			err = rows.Scan(&data)
 			if err != nil {
 				return res, err
 			}
-			buff.Write(data)
-			buff.WriteString(",")
+			err = json.Unmarshal(data, &m)
+			if err != nil {
+				return res, err
+			}
+			maps = append(maps, m)
 		}
-		buff.WriteString("]")
-		res.data = buff.Bytes()
+		rd, err := json.Marshal(maps)
+		if err != nil {
+			return res, err
+		}
+		res.data = rd
 	} else {
 		row := conn.QueryRowContext(c, qcomp.st.sql, args.values...)
 
