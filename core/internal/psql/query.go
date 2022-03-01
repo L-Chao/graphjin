@@ -330,10 +330,6 @@ func (c *compilerContext) renderLateralJoin() {
 func (c *compilerContext) renderLateralJoinClose(sel *qcode.Select) {
 	c.w.WriteString(`)`)
 	aliasWithID(c.w, `__sj`, sel.ID)
-	if c.ct == "clickhouse" {
-		c.w.WriteString(` ON true FORMAT JSON`)
-		return
-	}
 	c.w.WriteString(` ON true`)
 }
 
