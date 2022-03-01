@@ -253,7 +253,7 @@ func (c *compilerContext) renderSelect(sel *qcode.Select) {
 		c.w.WriteString(`SELECT json_object(`)
 		c.renderJSONFields(sel)
 		c.w.WriteString(`) `)
-	case "clickhousee":
+	case "clickhouse":
 		c.w.WriteString(`SELECT (`)
 		c.renderJSONFields(sel)
 		c.w.WriteString(`) `)

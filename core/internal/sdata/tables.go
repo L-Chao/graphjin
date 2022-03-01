@@ -363,12 +363,21 @@ func isInList(val string, s []string) bool {
 }
 
 func GetTable(db *sql.DB, schema, name, _type string) (*DBTable, error) {
+	var query string
+	switch _type {
+	case "clickhouse":
+		query = `SELECT table_schema AS TABLE_SCHEMA, table_name AS TABLE_NAME, column_name AS COLUMN_NAME, ordinal_position AS ORDINAL_POSITION, is_nullable AS IS_NULLABLE, data_type AS DATA_TYPE, NULL
+		FROM information_schema.columns
+		WHERE table_schema = '%s' AND table_name = '%s'
+		`
+	default:
+		query = `SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, ORDINAL_POSITION, IS_NULLABLE, DATA_TYPE, COLUMN_KEY
+		FROM information_schema.columns
+		WHERE table_schema='%s' AND table_name='%s'
+		`
+	}
 	rows, err := db.Query(
-		fmt.Sprintf(
-			"SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, ORDINAL_POSITION, IS_NULLABLE, DATA_TYPE, COLUMN_KEY FROM information_schema.columns WHERE table_schema='%s' AND table_name='%s'",
-			schema,
-			name,
-		),
+		fmt.Sprintf(query, schema, name),
 	)
 	if err != nil {
 		return nil, err
