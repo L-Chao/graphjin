@@ -113,6 +113,8 @@ func (co *Compiler) CompileQuery(
 	switch c.ct {
 	case "mysql":
 		c.w.WriteString(`SELECT json_object(`)
+	case "clickhouse":
+		c.w.WriteString(`SELECT (`)
 	default:
 		c.w.WriteString(`SELECT jsonb_build_object(`)
 	}
@@ -221,6 +223,10 @@ func (c *compilerContext) renderPluralSelect(sel *qcode.Select) {
 		c.w.WriteString(`SELECT CAST(COALESCE(json_arrayagg(__sj_`)
 		int32String(c.w, sel.ID)
 		c.w.WriteString(`.json), '[]') AS JSON) AS json`)
+	case "clickhouse":
+		c.w.WriteString(`SELECT toJSONString(map('json', COALESCE((__sj_`)
+		int32String(c.w, sel.ID)
+		c.w.WriteString(`.json), '[]'))) AS json`)
 	default:
 		c.w.WriteString(`SELECT COALESCE(jsonb_agg(__sj_`)
 		int32String(c.w, sel.ID)
@@ -245,6 +251,10 @@ func (c *compilerContext) renderSelect(sel *qcode.Select) {
 	switch c.ct {
 	case "mysql":
 		c.w.WriteString(`SELECT json_object(`)
+		c.renderJSONFields(sel)
+		c.w.WriteString(`) `)
+	case "clickhousee":
+		c.w.WriteString(`SELECT (`)
 		c.renderJSONFields(sel)
 		c.w.WriteString(`) `)
 	default:
@@ -310,6 +320,10 @@ func (c *compilerContext) renderSelectClose(sel *qcode.Select) {
 }
 
 func (c *compilerContext) renderLateralJoin() {
+	if c.ct == "clickhouse" {
+		c.w.WriteString(` LEFT OUTER JOIN (`)
+		return
+	}
 	c.w.WriteString(` LEFT OUTER JOIN LATERAL (`)
 }
 
