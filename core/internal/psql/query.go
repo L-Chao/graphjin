@@ -114,7 +114,7 @@ func (co *Compiler) CompileQuery(
 	case "mysql":
 		c.w.WriteString(`SELECT json_object(`)
 	case "clickhouse":
-		c.w.WriteString(`SELECT (`)
+		c.w.WriteString(`SELECT toJSONString(map(`)
 	default:
 		c.w.WriteString(`SELECT jsonb_build_object(`)
 	}
@@ -162,7 +162,11 @@ func (co *Compiler) CompileQuery(
 	// This helps multi-root work as well as return a null json value when
 	// there are no rows found.
 
-	c.w.WriteString(`) AS __root FROM ((SELECT true)) AS __root_x`)
+	if c.ct == "clickhouse" {
+		c.w.WriteString(`)) AS __root FROM ((SELECT true)) AS __root_x`)
+	} else {
+		c.w.WriteString(`) AS __root FROM ((SELECT true)) AS __root_x`)
+	}
 	c.renderQuery(st, true)
 }
 

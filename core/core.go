@@ -301,6 +301,16 @@ func (c *gcontext) resolveSQL(qr queryReq, role string) (queryResp, error) {
 	// 	stime = time.Now()
 	// }
 
+	// if c.gj.conf.DBType == "clickhouse" {
+	// 	rows, err := conn.QueryContext(c, qcomp.st.sql, args.values...)
+	// 	if err != nil {
+	// 		return res, err
+	// 	}
+	// 	for rows.Next() {
+	// 		var data []interface{}
+	// 		err = rows.Scan(&data)
+	// 	}
+	// }
 	row := conn.QueryRowContext(c, qcomp.st.sql, args.values...)
 
 	if err := row.Scan(&res.data); err == sql.ErrNoRows {
