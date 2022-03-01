@@ -255,7 +255,7 @@ func (c *compilerContext) renderSelect(sel *qcode.Select) {
 		c.w.WriteString(`) `)
 	case "clickhouse":
 		c.w.WriteString(`SELECT (`)
-		c.renderJSONFields(sel)
+		int32String(c.w, sel.ID)
 		c.w.WriteString(`) `)
 	default:
 		c.w.WriteString(`SELECT to_jsonb(__sr_`)
