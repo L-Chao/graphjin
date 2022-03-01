@@ -1,6 +1,7 @@
 package core
 
 import (
+	"bytes"
 	"context"
 	"database/sql"
 	"database/sql/driver"
@@ -301,24 +302,33 @@ func (c *gcontext) resolveSQL(qr queryReq, role string) (queryResp, error) {
 	// 	stime = time.Now()
 	// }
 
-	// if c.gj.conf.DBType == "clickhouse" {
-	// 	rows, err := conn.QueryContext(c, qcomp.st.sql, args.values...)
-	// 	if err != nil {
-	// 		return res, err
-	// 	}
-	// 	for rows.Next() {
-	// 		var data []interface{}
-	// 		err = rows.Scan(&data)
-	// 	}
-	// }
-	row := conn.QueryRowContext(c, qcomp.st.sql, args.values...)
+	if c.gj.conf.DBType == "clickhouse" {
+		rows, err := conn.QueryContext(c, qcomp.st.sql, args.values...)
+		if err != nil {
+			return res, err
+		}
+		var buff bytes.Buffer
+		buff.WriteString("[")
+		for rows.Next() {
+			var data []byte
+			err = rows.Scan(&data)
+			if err != nil {
+				return res, err
+			}
+			buff.Write(data)
+			buff.WriteString(",")
+		}
+		buff.WriteString("]")
+		res.data = buff.Bytes()
+	} else {
+		row := conn.QueryRowContext(c, qcomp.st.sql, args.values...)
 
-	if err := row.Scan(&res.data); err == sql.ErrNoRows {
-		return res, nil
-	} else if err != nil {
-		return res, err
+		if err := row.Scan(&res.data); err == sql.ErrNoRows {
+			return res, nil
+		} else if err != nil {
+			return res, err
+		}
 	}
-
 	qc := qcomp.st.qc
 
 	cur, err := c.gj.encryptCursor(qc, res.data)
