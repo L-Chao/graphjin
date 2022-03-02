@@ -325,12 +325,14 @@ func (c *gcontext) resolveSQL(qr queryReq, role string) (queryResp, error) {
 					if err != nil {
 						return res, err
 					}
-					mapRow := make(map[string]string)
+					mapRow := make(map[string]interface{})
 					if v, ok := jsonMap["json"]; ok {
-						if arr, ok := v.([]string); ok {
+						if arr, ok := v.([]interface{}); ok {
 							n := len(arr)
 							for i := 0; i < n-2; i++ {
-								mapRow[arr[i]] = arr[i+1]
+								if key, ok := arr[i].(string); ok {
+									mapRow[key] = arr[i+1]
+								}
 							}
 						}
 					}
