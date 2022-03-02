@@ -318,7 +318,22 @@ func (c *gcontext) resolveSQL(qr queryReq, role string) (queryResp, error) {
 			if err != nil {
 				return res, err
 			}
-			maps = append(maps, m)
+			for _, v := range m {
+				jsonMap := make(map[string]interface{})
+				if str, ok := v.(string); ok {
+					err = json.Unmarshal([]byte(str), &jsonMap)
+					if err != nil {
+						return res, err
+					}
+					if v, ok := jsonMap["json"]; ok {
+						if m, ok := v.(map[string]interface{}); ok {
+							maps = append(maps, m)
+						}
+					}
+
+				}
+
+			}
 		}
 		rd, err := json.Marshal(maps)
 		if err != nil {
