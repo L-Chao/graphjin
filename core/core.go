@@ -325,14 +325,16 @@ func (c *gcontext) resolveSQL(qr queryReq, role string) (queryResp, error) {
 					if err != nil {
 						return res, err
 					}
+					mapRow := make(map[string]string)
 					if v, ok := jsonMap["json"]; ok {
-						if m, ok := v.(map[string]interface{}); ok {
-							maps = append(maps, m)
+						if arr, ok := v.([]string); ok {
+							n := len(arr)
+							for i := 0; i < n-2; i++ {
+								mapRow[arr[i]] = arr[i+1]
+							}
 						}
 					}
-
 				}
-
 			}
 		}
 		rd, err := json.Marshal(maps)
