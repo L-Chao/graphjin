@@ -329,7 +329,7 @@ func (c *gcontext) resolveSQL(qr queryReq, role string) (queryResp, error) {
 					if v, ok := jsonMap["json"]; ok {
 						if arr, ok := v.([]interface{}); ok {
 							n := len(arr)
-							for i := 0; i < n-2; i++ {
+							for i := 0; i < n-1; i++ {
 								if key, ok := arr[i].(string); ok {
 									mapRow[key] = arr[i+1]
 								}
